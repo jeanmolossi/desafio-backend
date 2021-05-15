@@ -18,7 +18,7 @@ export class ValidationPipe implements PipeTransform<any> {
 
     const error_object = {
       message: "Validação falhou",
-      context: errors?.[0].target?.constructor.name,
+      context: errors?.[0]?.target?.constructor.name,
       details: errors.map((error) => {
         return {
           field: error.property,
