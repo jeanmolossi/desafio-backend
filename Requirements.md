@@ -29,15 +29,15 @@ USS -> BRL
 
 ### TRANSAÇÕES
 
-- Cadastro - POST
+- [ ] Cadastro - POST
   - Show quantidade moeda recebida
   - Show Dollar
   - Show cotação no momento
   - Show do valor final
-- Edição - PUT
-- Listar transações - GET
-- Buscar - GET
-- Excluir - DELETE
+- [ ] Edição - PUT
+- [ ] Listar transações - GET
+- [ ] Buscar - GET
+- [ ] Excluir - DELETE
 
 ### ARQUITETURA
 
@@ -49,4 +49,4 @@ USS -> BRL
 - [x] Dockerizar applicação
 - [x] Criar cadastro de usuário
 - [x] Criar autenticação
-- Criar endpoints de transação
+- [ ] Criar endpoints de transação
