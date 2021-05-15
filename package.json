@@ -15,8 +15,11 @@
     "@nestjs/core": "^7.6.15",
     "@nestjs/platform-express": "^7.6.15",
     "@nestjs/schematics": "^7.3.1",
+    "@nestjs/typeorm": "^7.1.5",
+    "pg": "^8.6.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.0.1"
+    "rxjs": "^7.0.1",
+    "typeorm": "^0.2.32"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.6.0",
