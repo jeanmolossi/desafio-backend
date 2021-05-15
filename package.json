@@ -18,18 +18,22 @@
     "@nestjs/platform-express": "^7.6.15",
     "@nestjs/schematics": "^7.3.1",
     "@nestjs/typeorm": "^7.1.5",
+    "bcryptjs": "^2.4.3",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "pg": "^8.6.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.1",
     "tsconfig-paths": "^3.9.0",
-    "typeorm": "^0.2.32"
+    "typeorm": "^0.2.32",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.6.0",
     "@nestjs/testing": "^7.6.15",
+    "@types/bcryptjs": "^2.4.2",
     "@types/jest": "^26.0.23",
+    "@types/uuid": "^8.3.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   }
