@@ -1,5 +1,5 @@
 export interface CreateUser {
-  id: string;
+  id?: string;
   username: string;
   password: string;
 }
