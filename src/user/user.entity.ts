@@ -1,3 +1,5 @@
+import { hashSync, compareSync } from "bcryptjs";
+import { v4 } from "uuid";
 import { CreateUser } from "./types/user-create";
 
 export class User {
@@ -5,17 +7,27 @@ export class User {
   username: string;
   password: string;
 
-  constructor({ id, username, password }: CreateUser) {
+  constructor({ id = v4(), username, password }: CreateUser) {
     this.id = id;
     this.username = username;
     this.password = password;
   }
 
-  hashPassword(): void {
-    this.password = "hash-password";
+  static new(payload: CreateUser) {
+    const user = new User(payload);
+
+    user.hashPassword();
+
+    return user;
   }
 
-  checkPassword(): boolean {
-    return true;
+  hashPassword(): void {
+    const hashed_password = hashSync(this.password, 6);
+
+    this.password = hashed_password;
+  }
+
+  checkPassword(input_password: string): boolean {
+    return compareSync(input_password, this.password);
   }
 }
