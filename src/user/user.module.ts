@@ -16,5 +16,6 @@ const persistence_provider: Provider[] = [
 @Module({
   controllers: [UserController],
   providers: [...persistence_provider, CreateUserService],
+  exports: [TypeOrmUserRepositoryAdapter],
 })
 export class UserModule {}
