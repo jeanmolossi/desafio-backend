@@ -41,10 +41,7 @@ USS -> BRL
 
 ### ARQUITETURA
 
-- application
-- core
-- data
-- infra
+- default
 
 ### STEPS
 
