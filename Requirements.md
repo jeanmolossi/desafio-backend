@@ -45,8 +45,8 @@ USS -> BRL
 
 ### STEPS
 
-- Startar aplicação com NestJS
-- Dockerizar applicação
+- [x] Startar aplicação com NestJS
+- [x] Dockerizar applicação
 - Criar cadastro de usuário
 - Criar autenticação
 - Criar endpoints de transação
