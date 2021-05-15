@@ -8,6 +8,7 @@ export const getTypeOrmModuleOptions = (): TypeOrmModuleOptions => ({
   port: Number(process.env.POSTGRES_PORT || 5432),
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
+  database: process.env.POSTGRES_DB,
   entities: [`${resolve(__dirname, "..")}/**/typeorm/*.entity.{ts,js}`],
   logging: true,
 });
@@ -20,7 +21,11 @@ export const getTypeOrmMigrationOptions = (): TypeOrmModuleOptions => ({
     migrationsDir: "database/migrations",
   },
 });
+
+const TYPEORM_MODULE = TypeOrmModule.forRootAsync({
+  useFactory: getTypeOrmModuleOptions,
+});
 @Module({
-  imports: [TypeOrmModule.forRoot()],
+  imports: [TYPEORM_MODULE],
 })
 export class TypeOrmConfigModule {}
