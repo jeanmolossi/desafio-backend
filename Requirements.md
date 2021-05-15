@@ -24,8 +24,8 @@ USS -> BRL
 
 ### USUÁRIO
 
-- Cadastro de usuário
-- Autenticação de Usuário
+- [x] Cadastro de usuário
+- [x] Autenticação de Usuário
 
 ### TRANSAÇÕES
 
@@ -47,6 +47,6 @@ USS -> BRL
 
 - [x] Startar aplicação com NestJS
 - [x] Dockerizar applicação
-- Criar cadastro de usuário
-- Criar autenticação
+- [x] Criar cadastro de usuário
+- [x] Criar autenticação
 - Criar endpoints de transação
