@@ -4,9 +4,10 @@ import { CreateTransactionService } from "./services/create/create-transaction.s
 import { TypeOrmTransactionsRepositoryAdapter } from "./typeorm/typeorm-transactions.repository";
 import { Connection } from "typeorm";
 import { UpdateTransactionService } from "./services/update-transaction/update-transaction.service";
-import { DeleteTransactionService } from './services/delete-transaction/delete-transaction.service';
-import { SearchTransactionService } from './services/search-transaction/search-transaction.service';
-import { ListTransactionService } from './services/list-transaction/list-transaction.service';
+import { DeleteTransactionService } from "./services/delete-transaction/delete-transaction.service";
+import { SearchTransactionService } from "./services/search-transaction/search-transaction.service";
+import { ListTransactionService } from "./services/list-transaction/list-transaction.service";
+import { AuthModule } from "@/application/auth/auth.module";
 
 const persistence_provider: Provider[] = [
   {
@@ -22,6 +23,7 @@ const persistence_provider: Provider[] = [
     HttpModule.register({
       baseURL: process.env.API_HOST,
     }),
+    AuthModule,
   ],
   providers: [
     ...persistence_provider,
