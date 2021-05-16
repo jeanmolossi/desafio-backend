@@ -3,6 +3,7 @@ import { TransactionsController } from "./transactions.controller";
 import { CreateTransactionService } from "./services/create/create-transaction.service";
 import { TypeOrmTransactionsRepositoryAdapter } from "./typeorm/typeorm-transactions.repository";
 import { Connection } from "typeorm";
+import { UpdateTransactionService } from "./services/update-transaction/update-transaction.service";
 
 const persistence_provider: Provider[] = [
   {
@@ -19,6 +20,10 @@ const persistence_provider: Provider[] = [
       baseURL: process.env.API_HOST,
     }),
   ],
-  providers: [...persistence_provider, CreateTransactionService],
+  providers: [
+    ...persistence_provider,
+    CreateTransactionService,
+    UpdateTransactionService,
+  ],
 })
 export class TransactionsModule {}
