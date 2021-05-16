@@ -13,10 +13,12 @@ import {
 import { CreateTransactionAdapter } from "./adapters/create-transaction-adapter";
 import { FilterTransactionAdapter } from "./adapters/filter-transaction-adapter";
 import { UpdateTransactionAdapter } from "./adapters/update-transaction-adapter";
-import { CreateTransactionService } from "./services/create/create-transaction.service";
-import { DeleteTransactionService } from "./services/delete-transaction/delete-transaction.service";
-import { SearchTransactionService } from "./services/search-transaction/search-transaction.service";
-import { UpdateTransactionService } from "./services/update-transaction/update-transaction.service";
+import {
+  CreateTransactionService,
+  DeleteTransactionService,
+  SearchTransactionService,
+  UpdateTransactionService,
+} from "./services";
 
 @Controller("transactions")
 export class TransactionsController {
