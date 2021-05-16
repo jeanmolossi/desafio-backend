@@ -1,20 +1,15 @@
 import { Type } from "class-transformer";
-import { IsEnum, IsNumberString } from "class-validator";
+import { IsEnum, IsNumber } from "class-validator";
 import { Coins } from "../types/Enums";
 
 export class CreateTransactionAdapter {
-  @IsNumberString()
-  @Type(() => Number)
-  brl_received_value: number;
-
-  @IsNumberString()
-  @Type(() => Number)
-  convertion_value: number;
-
-  @IsEnum(Coins)
+  @IsEnum(Coins, { message: "O tipo da moeda deve ser um valor" })
   received_coin: Coins;
 
-  @IsNumberString()
+  @IsNumber(
+    { maxDecimalPlaces: 3, allowNaN: false, allowInfinity: false },
+    { message: "O valor em reais recebido deve ser um número" }
+  )
   @Type(() => Number)
   received_value: number;
 }
