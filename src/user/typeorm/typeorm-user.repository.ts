@@ -1,11 +1,15 @@
 import { Injectable } from "@nestjs/common";
 import { EntityRepository, FindOneOptions, Repository } from "typeorm";
+import { UserRepository } from "../types/user.repository";
 import { User } from "../user.entity";
 import { TypeOrmUser } from "./typeorm-user.entity";
 
 @Injectable()
 @EntityRepository(TypeOrmUser)
-export class TypeOrmUserRepositoryAdapter extends Repository<TypeOrmUser> {
+export class TypeOrmUserRepositoryAdapter
+  extends Repository<TypeOrmUser>
+  implements UserRepository
+{
   async createUser(user: User) {
     const ormUser = new TypeOrmUser();
 
@@ -13,7 +17,9 @@ export class TypeOrmUserRepositoryAdapter extends Repository<TypeOrmUser> {
 
     await this.save(ormUser);
 
-    return ormUser;
+    Object.assign(user, ormUser);
+
+    return user;
   }
 
   async findUser(options: FindOneOptions<TypeOrmUser>) {
