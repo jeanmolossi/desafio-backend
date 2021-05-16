@@ -8,5 +8,7 @@ export interface TransactionsRepository {
   searchTransaction(
     findOptions: FindOneOptions
   ): Promise<Transactions | undefined>;
-  listTransactions(findOptions: FindManyOptions): Promise<Transactions[]>;
+  listTransactions(
+    findOptions?: FindManyOptions
+  ): Promise<{ transactions: Transactions[]; total: number }>;
 }
