@@ -13,7 +13,11 @@ export class CreateTransactionService {
   ) {}
 
   async execute(payload: CreateTransactionAdapter) {
-    const transaction = new Transactions(payload);
+    const transaction = new Transactions({
+      ...payload,
+      brl_received_value: 150,
+      convertion_value: 250,
+    });
 
     const newTransaction = await this.transactionsRepository.createTransaction(
       transaction
