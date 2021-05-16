@@ -1,4 +1,4 @@
-import { Module, Provider } from "@nestjs/common";
+import { HttpModule, Module, Provider } from "@nestjs/common";
 import { TransactionsController } from "./transactions.controller";
 import { CreateTransactionService } from "./services/create/create-transaction.service";
 import { TypeOrmTransactionsRepositoryAdapter } from "./typeorm/typeorm-transactions.repository";
@@ -14,6 +14,11 @@ const persistence_provider: Provider[] = [
 ];
 @Module({
   controllers: [TransactionsController],
+  imports: [
+    HttpModule.register({
+      baseURL: process.env.API_HOST,
+    }),
+  ],
   providers: [...persistence_provider, CreateTransactionService],
 })
 export class TransactionsModule {}
