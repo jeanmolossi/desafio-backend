@@ -1,3 +1,4 @@
+import { HttpAuth } from "@/application/auth/auth.decorator";
 import { ValidationPipe } from "@/application/validation.pipe";
 import {
   Body,
@@ -9,6 +10,7 @@ import {
   Post,
   Put,
   Query,
+  UseGuards,
 } from "@nestjs/common";
 import { CreateTransactionAdapter } from "./adapters/create-transaction-adapter";
 import { FilterTransactionAdapter } from "./adapters/filter-transaction-adapter";
@@ -22,6 +24,7 @@ import {
 } from "./services";
 
 @Controller("transactions")
+@UseGuards(HttpAuth)
 export class TransactionsController {
   constructor(
     @Inject(CreateTransactionService)
