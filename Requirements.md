@@ -35,9 +35,9 @@ USS -> BRL
   - Show cotação no momento
   - Show do valor final
 - [x] Edição - PUT
-- [ ] Listar transações - GET
-- [ ] Buscar - GET
-- [ ] Excluir - DELETE
+- [x] Listar transações - GET
+- [x] Buscar - GET
+- [x] Excluir - DELETE
 
 ### ARQUITETURA
 
@@ -49,4 +49,4 @@ USS -> BRL
 - [x] Dockerizar applicação
 - [x] Criar cadastro de usuário
 - [x] Criar autenticação
-- [ ] Criar endpoints de transação
+- [x] Criar endpoints de transação
