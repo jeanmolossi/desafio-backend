@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsEnum, IsNumber } from "class-validator";
+import { IsBoolean, IsEnum, IsNumber, IsOptional } from "class-validator";
 import { Coins } from "../types/Enums";
 
 export class CreateTransactionAdapter {
@@ -12,4 +12,8 @@ export class CreateTransactionAdapter {
   )
   @Type(() => Number)
   received_value: number;
+
+  @IsBoolean({ message: "Você deve confirmar com um valor booleano" })
+  @IsOptional()
+  confirm_duplicate_transaction?: boolean;
 }
