@@ -1,8 +1,17 @@
 import { ValidationPipe } from "@/application/validation.pipe";
-import { Body, Controller, Inject, Param, Post, Put } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Delete,
+  Inject,
+  Param,
+  Post,
+  Put,
+} from "@nestjs/common";
 import { CreateTransactionAdapter } from "./adapters/create-transaction-adapter";
 import { UpdateTransactionAdapter } from "./adapters/update-transaction-adapter";
 import { CreateTransactionService } from "./services/create/create-transaction.service";
+import { DeleteTransactionService } from "./services/delete-transaction/delete-transaction.service";
 import { UpdateTransactionService } from "./services/update-transaction/update-transaction.service";
 
 @Controller("transactions")
@@ -12,7 +21,10 @@ export class TransactionsController {
     private readonly createTransactionService: CreateTransactionService,
 
     @Inject(UpdateTransactionService)
-    private readonly updateTransactionService: UpdateTransactionService
+    private readonly updateTransactionService: UpdateTransactionService,
+
+    @Inject(DeleteTransactionService)
+    private readonly deleteTransactionService: DeleteTransactionService
   ) {}
 
   @Post()
@@ -37,5 +49,10 @@ export class TransactionsController {
     });
 
     return transaction;
+  }
+
+  @Delete("/:id")
+  async deleteTransaction(@Param("id") id: string) {
+    return this.deleteTransactionService.execute(id);
   }
 }
