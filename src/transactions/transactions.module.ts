@@ -4,6 +4,7 @@ import { CreateTransactionService } from "./services/create/create-transaction.s
 import { TypeOrmTransactionsRepositoryAdapter } from "./typeorm/typeorm-transactions.repository";
 import { Connection } from "typeorm";
 import { UpdateTransactionService } from "./services/update-transaction/update-transaction.service";
+import { DeleteTransactionService } from './services/delete-transaction/delete-transaction.service';
 
 const persistence_provider: Provider[] = [
   {
@@ -24,6 +25,7 @@ const persistence_provider: Provider[] = [
     ...persistence_provider,
     CreateTransactionService,
     UpdateTransactionService,
+    DeleteTransactionService,
   ],
 })
 export class TransactionsModule {}
