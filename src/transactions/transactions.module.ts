@@ -1,9 +1,19 @@
-import { Module } from "@nestjs/common";
+import { Module, Provider } from "@nestjs/common";
 import { TransactionsController } from "./transactions.controller";
 import { CreateTransactionService } from "./services/create/create-transaction.service";
+import { TypeOrmTransactionsRepositoryAdapter } from "./typeorm/typeorm-transactions.repository";
+import { Connection } from "typeorm";
 
+const persistence_provider: Provider[] = [
+  {
+    provide: TypeOrmTransactionsRepositoryAdapter,
+    inject: [Connection],
+    useFactory: (connection: Connection) =>
+      connection.getCustomRepository(TypeOrmTransactionsRepositoryAdapter),
+  },
+];
 @Module({
   controllers: [TransactionsController],
-  providers: [CreateTransactionService],
+  providers: [...persistence_provider, CreateTransactionService],
 })
 export class TransactionsModule {}
