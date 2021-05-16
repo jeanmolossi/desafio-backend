@@ -29,12 +29,12 @@ USS -> BRL
 
 ### TRANSAÇÕES
 
-- [ ] Cadastro - POST
+- [x] Cadastro - POST
   - Show quantidade moeda recebida
   - Show Dollar
   - Show cotação no momento
   - Show do valor final
-- [ ] Edição - PUT
+- [x] Edição - PUT
 - [ ] Listar transações - GET
 - [ ] Buscar - GET
 - [ ] Excluir - DELETE
