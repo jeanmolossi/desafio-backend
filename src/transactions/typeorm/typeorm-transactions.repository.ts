@@ -51,11 +51,13 @@ export class TypeOrmTransactionsRepositoryAdapter
     return transaction;
   }
 
-  async listTransactions(findOptions: FindManyOptions<TypeOrmTransactions>) {
-    const transactions = await this.find(findOptions);
+  async listTransactions(
+    findOptions: FindManyOptions<TypeOrmTransactions> = {}
+  ) {
+    const [transactions, total] = await this.findAndCount(findOptions);
 
-    if (!transactions) return [];
+    if (!transactions) return { transactions: [], total: 0 };
 
-    return transactions;
+    return { transactions, total };
   }
 }
