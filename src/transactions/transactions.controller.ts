@@ -16,6 +16,7 @@ import { UpdateTransactionAdapter } from "./adapters/update-transaction-adapter"
 import {
   CreateTransactionService,
   DeleteTransactionService,
+  ListTransactionService,
   SearchTransactionService,
   UpdateTransactionService,
 } from "./services";
@@ -33,7 +34,10 @@ export class TransactionsController {
     private readonly deleteTransactionService: DeleteTransactionService,
 
     @Inject(SearchTransactionService)
-    private readonly searchTransactionService: SearchTransactionService
+    private readonly searchTransactionService: SearchTransactionService,
+
+    @Inject(ListTransactionService)
+    private readonly listTransactionService: ListTransactionService
   ) {}
 
   @Get()
@@ -41,6 +45,14 @@ export class TransactionsController {
     @Query(ValidationPipe) filters: FilterTransactionAdapter
   ) {
     return this.searchTransactionService.execute(filters);
+  }
+
+  @Get("/list")
+  async listTransactions(
+    @Query("page") page: number,
+    @Query("limit") limit: number
+  ) {
+    return this.listTransactionService.execute(page, limit);
   }
 
   @Post()
