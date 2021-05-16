@@ -4,7 +4,7 @@ import { TransactionsRepository } from "@/transactions/types/transactions.reposi
 import { Injectable } from "@nestjs/common";
 
 @Injectable()
-export class CreateService {
+export class CreateTransactionService {
   constructor(
     private readonly transactionsRepository: TransactionsRepository
   ) {}
