@@ -1,4 +1,5 @@
 import {
+  AfterLoad,
   Column,
   CreateDateColumn,
   Entity,
@@ -25,4 +26,10 @@ export class TypeOrmTransactions {
 
   @CreateDateColumn()
   created_at: Date;
+
+  @AfterLoad()
+  convertToNumbers() {
+    this.received_value = +this.received_value;
+    this.brl_received_value = +this.brl_received_value;
+  }
 }
